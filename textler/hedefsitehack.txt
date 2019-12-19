@@ -1,0 +1,151 @@
+Selamun aleyküm hacýlar..
+
+Biliyorsunuz ki forumda yeni bir eðitim kategorisi açýlýyor.
+Bende virajý alýp tam 10 konu ile sezonu bitireyim dedim...
+Bunun için biraz süreci hýzlandýracaðým..
+Konu içerisinde gereksiz kelimelere yer vermemeye çalýþacaðým ki, anlattýðým þeyleri anlayabilesiniz..
+
+Ýlk önce olayýn mantýðýndan bahsetmek istiyorum...
+Hedef sitelerin hacklenmesinin sebebi genellikle sunucularýndan kaynaklanan bir durumdur..
+Sunucu ne diyecek olursanýz, sizin bildiðiniz hosting diye tabir ettiðimiz; domaininizin aktif olmasýna yarayan depodur..
+Bir hostingde birden fazla domain bulunabilir.
+Hosting içerisinde ne kadar site varsa sizin için o kadar iyi..
+
+Nedenini birazdan anlatacaðým..
+Ýlk olarak bir website seçtiniz ve kontrol etmeye baþladýnýz..
+
+Ýlk yapacaðýnýz þey sitenin admin panelini bulmaya çalýþýn.
+Linuxda 6k panel uzantýsý tarayan toollar var araþtýrýrsanýz bulabilirsiniz.
+
+sitemizin admin panelini buldunuz diyelim..
+ilk önce bi admin panel bypass methodunu deneyelim..
+
+username password adlý inputlara bu aþaðýdakilerden herhangi birisini girebilirsiniz..
+
+' or 1=1
+' or '1'='1
+' or 1=1--
+' or 1=1#
+hey' or 1=1–
+') or ('a'='a
+'hi' or 'x'='x';
+'or select *
+admin'--
+
+
+genellikle ' or 1=1# her zaman iþ görür.
+
+Bunlarý yaptýktan sonra eðer ki admin paneline girerseniz shell basýp indexi çakarsýnýz..
+Tabiki bu anlattýðým olayýn ihtimali çok çok düþük..
+Yani þöyle anlatayým.
+Hem site CMS site olmayacak.. Elle yazýlmýþ script olacak.
+Hemde filtreleme yapýlmamýþ olacak ki or bypass kodlarýnýz iþe yarasýn..
+
+Þimdi hedef sitenizde sql ve xss açýk taramasý yapma zamaný geldi..
+
+Sql açýðý bulmak için birçok tool mevcut fakat zaten bir websitede sql inject var ise kolaylýk bulabilirsiniz.
+Bodoslama tüm birkaç kategoriye týklayýp URL uzantýsýný kontrol edebilirsiniz.. eðer ki bulamazsanýz posst sql inject methodunu deneyin önceli konularda anlatmýþtým.
+
+xss'ye gelecek olursak, bu bildiðiniz hedef sitenin adminini olaya düþürmek adýna sniffer hazýrlayýp, Sosyal mühendisclik oynuyorsunuz çee
+tabikide xss ciddi sorunlara yol açabilecek tehlikeli bir açýktýr.
+Koskoca þirketlerin sitelerinde bile halen xss tehlikesi bulunur durumda..
+web sitede xss bulmak için kýsaca sitedeki search inputu ile arama yapýn ve url'de = den sonrasýný <alert>kelime</alert> adlý javascript kodlarý ile kontrol edin...
+
+
+Bide tabi muhteþem ikili RFI LFI açýklarý var.
+Bu zamana kadar bu açýk sayeside bir site dahi hackleyebilen varsa bana ulaþsýn.
+Ýki açýkta bi bokuma derman olmuyor.
+
+Sitenin scriptinde falan açýk aramaya baþladýnýz.
+Ne biliyim uzantýlarýný kontrol ettiniz /upload.php
+admin/galeri.php gibi gibi.
+
+
+Sýradaki iþlem...
+Server taramasý..
+
+Yukarýda da dediðimiz gibi hosting denilen þeyler bir depodur.
+Birden fazla domaini yani websiteyi barýndýrabilir..
+
+
+"Ne kadar fazla website o kadar fazla zaafiyet"
+
+-Ünlü düþünür Anarchosa
+
+Þimdi mass olarak bi serverda sql açýðý taratýn.
+Bunun için size tool vermiþtim aq bi dk.
+
+he iþte bu;
+
+https://spyhackerz.org/forum/threads/kýzýl-börüler-eðitim-3-hedef-servere-mass-sql.20353/
+
+Bunun sayesinde ip adresini girdiðiniz serverde sql açýðý taramasý yapar..
+böylelikle sql açýklý siteleri tak tak tak elinize verir..
+
+bulduðunuz sql açýklý sitelerin ilk admin panellerini bulmalýsýnýz daha sonra sqlmap ile veri çekmelisiniz..
+Bunu da anlattým.
+
+https://spyhackerz.org/forum/threads/kýzýl-börüler-eðitim-6-garanti-admin-panelini-bulun.20356/
+
+Bir diðer yöntem..
+
+Bir sitenin hostingindeki diðer domainler nasýl bulunur ?
+
+-Cevap reverse ip lookup ile.
+
+örnek olarak; http://viewdns.info/reverseip veya https://spyhackerz.org/reverse-ip.php
+
+Kullanabilirsiniz. Yapmanýz gereken tek þey hedef sitenin ip adresini alýp reverseden taratmak.
+Diyelim hostingde 700 site var.
+Hepsinin domainine göz ucuyla bakýn
+
+Neden ?
+
+Eðer domaininde veya subdomaininde "demo","test" gibi kelimeler varsa onlarý köþeye alýn. Çünkü genellikle insanlar bu tür siteleri müþterilere göstermek amacýyla kullanýyor.
+Bu sitelerin admin panelleri genellikle þifresiz olur. Bir upload ivmesi bulup shellinizi upload edebilirsiniz.
+
+Bir diðer yöntem dork ile analiz saldýrýsý..
+
+Bing.com detaylý arama yapabilen bir tarayýcýdýr. Öyledir ki ipadresinden bile dork taratabilirsiniz.
+
+Örneðin hedef belirlediginiz serverin ip adresi 178.8.98.2 olsun.
+
+Bing.com da þu aramayý yapýn.
+
+ip:178.8.98.2 inurl:php?id=
+
+Bu dork ile hedef serverdeki sitelerde php?id= uzantýsý aradýk.
+
+Eðer bulursanýz sqlmap ile çekin vurun o.çocugunu...
+
+Daha sonra
+
+ip:178.8.98.2 inurl:admin/login.php
+
+Þeklinde bir dork tarayýn.
+admin/login.php uzantýsý olan çoðu scriptte Noredricet açýðý vardýr. admin/index.php uzantýsýna yönlendirerek shell atabilirsiniz.
+
+Yemedi mi ?
+
+Admin panel bypass deneyin.
+
+Yine mý yemedi admin panelde post inject tarayýn (anlatmistim)
+
+Yine mi yemedi ?
+
+ip:178.8.98.2 inurl:upload.php
+
+veya
+
+ip:178.8.98.2 inurl:yukle.php
+
+Gibi uzantýlardan upload açýðý bulup burp suite ile shellinizi atabilirsiniz.
+
+
+
+Sizlere diyeceðim en önemli þey ise; scriptte acik bulmaniz icin script yazan kiþi gibi düþünebilmeniz için o scriptte kullanýlan dile hakim olmanýz gerekiyor. Boylelikle zaafiyetlere hakim olabilirsiniz..
+
+
+
+
+Hedef site hackleme hakkýnda birçok yöntem bulunmaktadýr. En yaygýn kullanýlaný anlatmaya çalýþtým. Eksik de olsa zamanla telâfi edeceðiz.

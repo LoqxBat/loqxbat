@@ -1,0 +1,24 @@
+("Comment on Hello world!") --> Bu dork yeni açýlan Wordpress sitelerde Wordpress tarafýndan otomatik gelen mesajýn baþlýðýdýr.
+
+("Comentarios en Hello world!") --> Bu dork üstteki dorkun Ýspanyolca dilindeki çevirisidir.
+
+("author/admin") --> Bu dork sitede admin adlý kullanýcýnýn paylaþým yaptýðýný gösteren siteleri bize gösterir. Bu dorkun faydasý; BruteForce'da kullanýcý adýný admin olarak ayarladýysanýz Kullanýcý Adý kýsmýnýn yanlýþ çýkma olasýlýðýný düþürür. Bu durumda önemli olan kýsým þifredir. Yani bu dork ile iþ sadece Þifre kýsmýnýn doðruluðuna bakar.
+
+("uncategorized/hello-world") --> Bu dork yeni açýlan Wordpress sitelerde Wordpress tarafýndan gelen mesajýn olduðu URL'dir.
+
+("category/sin-categoria") --> Bu dork Sin Categoria (Kategorisiz) Ýspanyolca siteleri bize gösterir.
+
+("uncategorized") --> Bu dorkun yanýna kelime yazýldýðýnda o kelimenin bulunduðu herhangi bir kategoriye ait olmayan konularýn olduðu siteleri bize gösterir.
+
+("non-classé") --> Bu dorkun ("category/sin-categoria") dorkundan tek farký Fransýzca olmasý.
+
+("Proudly powered by WordPress") --> Bu dork sitenin altýnda Proudly powered by WordPress yazan siteleri bize gösterir. bu yazý bazý Wordpress tabanlý sitelerin altýnda, site
+nin Wordpress il yazýldýðýný belirmek için kullanýlýr. Bu dorku tavsiye etmem çünkü bu yazýyý sitesinden kaldýranlarýn sayýsý çok fazla, yani düzgün sonuç alamayabilirsiniz.
+
+("Welcome to WordPress. This is your first post.") --> Bu dork yeni açýlan Wordpress sitelerde Wordpress tarafýndan gelen mesajýn içeriðinden bir kýsýmdýr.
+
+("Just another WordPress site") --> Bu dork bize baþlýðýnda Just another WordPress site yazan siteleri gösterir.
+
+("Mr WordPress on Hello world!") --> Bu dork yeni açýlan sitelerde Wordpress'ten gelen mesajýýn olduðu bize gösterir.
+
+("/wp/hello-world/") --> Bu dork týpký ("uncategorized/hello-world") dorku gibidir. Yeni açýlan sitelerde Wordpress tarafýndan gönderilen mesajýn olduðu URL'lerin olduðu siteleri bize gösterir.
